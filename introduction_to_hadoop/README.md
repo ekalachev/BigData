@@ -16,3 +16,7 @@
 ### Acceptance Criteria
 - A service is installed and working.
 - Kafka messages are printed.
+
+
+
+# Both tasks are done!
