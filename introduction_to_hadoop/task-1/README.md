@@ -1,4 +1,6 @@
-# Fallow the [instructions](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html)
+# Task 1
+
+## Fallow the [instructions](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html)
 - Install ans setup **docker** and **kubernetes** and install resources:
 ![docker_install](./img/docker_install.png)
 ![docker_install2](./img/docker_install2.png)
@@ -15,3 +17,5 @@
 - Reset admin password:
 ![sandbox_hdp_install2](./img/sandbox_hdp_install2.png)
 ![sandbox_hdp_install3](./img/sandbox_hdp_install3.png)
+- Describe basic components of Ambari UI. Make screenshots.
+![ambari_result](./img/ambari_result.png)
