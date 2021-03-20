@@ -17,5 +17,6 @@
 - Reset admin password:
 ![sandbox_hdp_install2](./img/sandbox_hdp_install2.png)
 ![sandbox_hdp_install3](./img/sandbox_hdp_install3.png)
-- Describe basic components of Ambari UI. Make screenshots.
+
+## Result:
 ![ambari_result](./img/ambari_result.png)
