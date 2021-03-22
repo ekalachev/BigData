@@ -17,7 +17,7 @@
 
 ## Create the Consumer via CLI
 - Head to: /usr/hdp/current/kafka-broker/bin
-- Run: sh kafka-console-consumer.sh --bootstrap-server sandbox-hdp.hortonworks.com:6667 --topic <topic_name>
+- Run: sh kafka-console-consumer.sh --bootstrap-server sandbox-hdp.hortonworks.com:6667 --topic <topic_name> --from-beginning
 - Go back to the other console, and write something else
 
 ## Result:
