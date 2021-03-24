@@ -17,6 +17,13 @@
 - A service is installed and working.
 - Kafka messages are printed.
 
-
-
 # Both tasks are done!
+
+# Quiz:
+![quiz1](./img/quiz1.png)
+![quiz2](./img/quiz2.png)
+![quiz3](./img/quiz3.png)
+![quiz4](./img/quiz4.png)
+![quiz5](./img/quiz5.png)
+![quiz6](./img/quiz6.png)
+![quiz7](./img/quiz7.png)
