@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 docker rm -f sandbox-proxy 2>/dev/null
 docker run --name sandbox-proxy --network=cda \
--v /D:/Projects/BigData/HDP_3.0.1_docker-deploy-scripts/assets/nginx.conf:/etc/nginx/nginx.conf \
--v /D:/Projects/BigData/HDP_3.0.1_docker-deploy-scripts/sandbox/proxy/conf.d:/etc/nginx/conf.d \
--v /D:/Projects/BigData/HDP_3.0.1_docker-deploy-scripts/sandbox/proxy/conf.stream.d:/etc/nginx/conf.stream.d \
+-v /D:/Projects/BigData/introduction_to_hadoop/task-1/HDP_3.0.1_docker-deploy-scripts/assets/nginx.conf:/etc/nginx/nginx.conf \
+-v /D:/Projects/BigData/introduction_to_hadoop/task-1/HDP_3.0.1_docker-deploy-scripts/sandbox/proxy/conf.d:/etc/nginx/conf.d \
+-v /D:/Projects/BigData/introduction_to_hadoop/task-1/HDP_3.0.1_docker-deploy-scripts/sandbox/proxy/conf.stream.d:/etc/nginx/conf.stream.d \
 -p 1080:1080 \
 -p 4200:4200 \
 -p 7777:7777 \
@@ -77,7 +77,6 @@ docker run --name sandbox-proxy --network=cda \
 -p 9000:9000 \
 -p 9996:9996 \
 -p 10000:10000 \
--p 10001:10001 \
 -p 10015:10015 \
 -p 10016:10016 \
 -p 10500:10500 \
@@ -96,4 +95,4 @@ docker run --name sandbox-proxy --network=cda \
 -p 50095:50095 \
 -p 60000:60000 \
 -p 60080:60080 \
--d hortonworks/sandbox-proxy:
+-d hortonworks/sandbox-proxy:1.0
