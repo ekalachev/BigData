@@ -1,0 +1,26 @@
+---
+
+priceguard:
+  logfile_path: "/tmp/priceguard.log"
+  budget_limit: 100
+  aws:
+    active: false
+    profile: "default"
+    region: "us-east-1"
+    budget_currency: "USD"
+    budget_start: "2020-03-29_00:00"
+    emails:
+      - "Eldar_Kalachev@epam.com"
+  gcp:
+    active: false
+    budget_currency: "USD"
+    service_account:
+      credentials_file: "/Users/aleksandr_chikovani/gcp/__secret.json"
+    billing_account:
+      name: "my_billing_account"
+  azure:
+    active: false
+    budget_start: "2020-03-01" #it should be first day of the month #TODO: check this by run.py
+    emails:
+      - "eldar_kalachev@epam.com"
+    subscription_name: "Free\\ Trial"

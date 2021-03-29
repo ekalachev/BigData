@@ -1,0 +1,74 @@
+{
+  "eTag": "\"000000000000002\"",
+  "properties": {
+    "category": "Cost",
+    "amount": "1000",
+    "timeGrain": "Annually",
+    "timePeriod": {
+      "startDate": "2020-03-01",
+      "endDate": "2020-03-31"
+    },
+    "notifications": {
+      "Actual_EqualTo_95_Percent": {
+        "enabled": true,
+        "operator": "EqualTo",
+        "threshold": 95,
+        "contactEmails": [
+          "johndoe@contoso.com"
+        ],
+        "contactRoles": [
+          "Contributor",
+          "Owner"
+        ]
+      },
+      "Actual_EqualTo_96_Percent": {
+        "enabled": true,
+        "operator": "EqualTo",
+        "threshold": 96,
+        "contactEmails": [
+          "johndoe@contoso.com"
+        ],
+        "contactRoles": [
+          "Contributor",
+          "Owner"
+        ]
+      },
+      "Actual_EqualTo_97_Percent": {
+        "enabled": true,
+        "operator": "EqualTo",
+        "threshold": 97,
+        "contactEmails": [
+          "johndoe@contoso.com"
+        ],
+        "contactRoles": [
+          "Contributor",
+          "Owner"
+        ]
+      },
+      "Actual_EqualTo_98_Percent": {
+        "enabled": true,
+        "operator": "EqualTo",
+        "threshold": 98,
+        "contactEmails": [
+          "johndoe@contoso.com"
+        ],
+        "contactRoles": [
+          "Contributor",
+          "Owner"
+        ]
+      },
+      "Actual_EqualTo_99_Percent": {
+        "enabled": true,
+        "operator": "EqualTo",
+        "threshold": 99,
+        "contactEmails": [
+          "johndoe@contoso.com"
+        ],
+        "contactRoles": [
+          "Contributor",
+          "Owner"
+        ]
+      }
+    }
+  }
+}
