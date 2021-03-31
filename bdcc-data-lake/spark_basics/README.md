@@ -19,3 +19,12 @@
 ## Spark RDD. Transformations and Actions
 1. What is Spark Core Abstraction? ![What is Spark Core Abstraction?](./images/Spark_RDD_transformations_and_actions1.png)
 2. Fault Tolerance in RDD is achieved using: ![Fault Tolerance in RDD is achieved using](./images/Spark_RDD_transformations_and_actions2.png)
+
+## Pair RDD. Shared Variables. Shared Variables Caching. Smart Sources:
+1. RDD operations: ![RDD operations](./images/pair_RDD_shared_variables1.png)
+2. Identify correct transformation. ![Identify correct transformation](./images/pair_RDD_shared_variables2.png)
+3. What types of shared variables does spark provide? ![](./images/pair_RDD_shared_variables3.png)
+4. What is true regarding shared variables? ![What types of shared variables does spark provide?](./images/pair_RDD_shared_variables4.png)
+5. Identify correct ways to cache rdd. ![Identify correct ways to cache rdd.](./images/pair_RDD_shared_variables5.png)
+6. Sparks provides different storage levels for performing caching data across partitions. ![Sparks provides different storage levels for performing caching data across partitions](./images/pair_RDD_shared_variables6.png)
+7. What advantages in terms of “Smart” are correct? ![What advantages in terms of “Smart” are correct?](./images/pair_RDD_shared_variables7.png)
