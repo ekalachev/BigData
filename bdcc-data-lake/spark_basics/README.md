@@ -37,3 +37,12 @@
 5. ETL is short for: ![ETL is short for](./images/datasets_and_dataFrames_Spark_ETL5.png)
 6. The purpose of Extraction step is: ![The purpose of Extraction step is](./images/datasets_and_dataFrames_Spark_ETL6.png)
 7. Data Type Conversion, Data Aggregation, Data Encryption are examples of: ![Data Type Conversion, Data Aggregation, Data Encryption are examples of](./images/datasets_and_dataFrames_Spark_ETL7.png)
+
+## SQL Joins. Tuning Techniques. Debug and Test. Catalyst. CBO. Tungsten
+1. How can we make spark to perform BroadcastJoin? ![How can we make spark to perform BroadcastJoin?](./images/SQL_joins_Tuning_echniques_Debug_and_test_Catalyst_CBO_Tungsten1.png)
+2. What optimization setting should help in case 95-99% of a task is already finished and the rest works too slow? ![What optimization setting should help in case 95-99% of a task is already finished and the rest works too slow?](./images/SQL_joins_Tuning_echniques_Debug_and_test_Catalyst_CBO_Tungsten2.png)
+3. What are possible options to increase the level of parallelism in Spark? ![What are possible options to increase the level of parallelism in Spark?](./images/SQL_joins_Tuning_echniques_Debug_and_test_Catalyst_CBO_Tungsten3.png)
+4. What are possible ways to monitor spark job? ![What are possible ways to monitor spark job?](./images/SQL_joins_Tuning_echniques_Debug_and_test_Catalyst_CBO_Tungsten4.png)
+5. What are the major components of Spark SQL execution engine? ![What are the major components of Spark SQL execution engine?](./images/SQL_joins_Tuning_echniques_Debug_and_test_Catalyst_CBO_Tungsten5.png)
+6. What types of statistics does Cost-Based Optimizer support? ![What types of statistics does Cost-Based Optimizer support?](./images/SQL_joins_Tuning_echniques_Debug_and_test_Catalyst_CBO_Tungsten6.png)
+7. What benefits does Tungsten project provide? ![What benefits does Tungsten project provide?](./images/SQL_joins_Tuning_echniques_Debug_and_test_Catalyst_CBO_Tungsten7.png)
