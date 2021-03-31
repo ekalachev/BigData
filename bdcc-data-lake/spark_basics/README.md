@@ -28,3 +28,12 @@
 5. Identify correct ways to cache rdd. ![Identify correct ways to cache rdd.](./images/pair_RDD_shared_variables5.png)
 6. Sparks provides different storage levels for performing caching data across partitions. ![Sparks provides different storage levels for performing caching data across partitions](./images/pair_RDD_shared_variables6.png)
 7. What advantages in terms of “Smart” are correct? ![What advantages in terms of “Smart” are correct?](./images/pair_RDD_shared_variables7.png)
+
+##  Datasets and DataFrames. Spark ETL
+1. DataFrame is a Dataset of Row. ![DataFrame is a Dataset of Row.](./images/datasets_and_dataFrames_Spark_ETL1.png)
+2. DataFrame API is: ![DataFrame API is](./images/datasets_and_dataFrames_Spark_ETL2.png)
+3. Which of the following is wrong Spark terminology? ![Which of the following is wrong Spark terminology?](./images/datasets_and_dataFrames_Spark_ETL3.png)
+4. Which of the following is not true for DataFrame? ![Which of the following is not true for DataFrame?](./images/datasets_and_dataFrames_Spark_ETL4.png)
+5. ETL is short for: ![ETL is short for](./images/datasets_and_dataFrames_Spark_ETL5.png)
+6. The purpose of Extraction step is: ![The purpose of Extraction step is](./images/datasets_and_dataFrames_Spark_ETL6.png)
+7. Data Type Conversion, Data Aggregation, Data Encryption are examples of: ![Data Type Conversion, Data Aggregation, Data Encryption are examples of](./images/datasets_and_dataFrames_Spark_ETL7.png)
