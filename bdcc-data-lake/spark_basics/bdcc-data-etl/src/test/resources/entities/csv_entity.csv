@@ -1,0 +1,4 @@
+integer_column,decimal_column,string_column
+1,1.1,string1
+2,2.2,"string2"
+,,
