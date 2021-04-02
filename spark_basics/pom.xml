@@ -22,7 +22,7 @@
 
     <isTestSkip>false</isTestSkip>
 
-    <revision>1.0.1-SNAPSHOT</revision>
+    <revision>1.0.1-snapshot</revision>
     <proj.version>${revision}</proj.version>
   </properties>
 
