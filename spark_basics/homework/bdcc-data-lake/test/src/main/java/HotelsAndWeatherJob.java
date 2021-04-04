@@ -3,7 +3,6 @@ import com.byteowls.jopencage.JOpenCageGeocoder;
 import com.byteowls.jopencage.model.JOpenCageForwardRequest;
 import com.byteowls.jopencage.model.JOpenCageLatLng;
 import com.byteowls.jopencage.model.JOpenCageResponse;
-import de.cronn.reflection.util.PropertyUtils;
 import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.sql.*;
 import org.apache.spark.sql.types.*;
@@ -11,6 +10,7 @@ import utilities.Hotel;
 import utilities.Weather;
 
 
+import static de.cronn.reflection.util.PropertyUtils.getPropertyName;
 import static java.lang.String.format;
 
 public class HotelsAndWeatherJob {
@@ -23,26 +23,26 @@ public class HotelsAndWeatherJob {
     public static void main(String[] args) {
 
         StructType hotelSchema = DataTypes.createStructType(new StructField[]{
-                DataTypes.createStructField("id", DataTypes.LongType, false),
-                DataTypes.createStructField("address", DataTypes.StringType, false),
-                DataTypes.createStructField("country", DataTypes.StringType, false),
-                DataTypes.createStructField("city", DataTypes.StringType, false),
-                DataTypes.createStructField("name", DataTypes.StringType, false),
-                DataTypes.createStructField("latitude", DataTypes.DoubleType, true),
-                DataTypes.createStructField("longitude", DataTypes.DoubleType, true),
-                DataTypes.createStructField("geoHash", DataTypes.StringType, true)
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getId), DataTypes.LongType, false),
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getAddress), DataTypes.StringType, false),
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getCountry), DataTypes.StringType, false),
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getCity), DataTypes.StringType, false),
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getName), DataTypes.StringType, false),
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getLatitude), DataTypes.DoubleType, true),
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getLongitude), DataTypes.DoubleType, true),
+                DataTypes.createStructField(getPropertyName(Hotel.class, Hotel::getGeoHash), DataTypes.StringType, true)
         });
 
         StructType weatherSchema = DataTypes.createStructType(new StructField[]{
-                DataTypes.createStructField("lng", DataTypes.DoubleType, true),
-                DataTypes.createStructField("lat", DataTypes.DoubleType, true),
-                DataTypes.createStructField("geoHash", DataTypes.StringType, true),
-                DataTypes.createStructField("avg_tmpr_f", DataTypes.DoubleType, false),
-                DataTypes.createStructField("avg_tmpr_c", DataTypes.DoubleType, false),
-                DataTypes.createStructField("wthr_date", DataTypes.StringType, false),
-                DataTypes.createStructField("year", DataTypes.IntegerType, false),
-                DataTypes.createStructField("month", DataTypes.IntegerType, false),
-                DataTypes.createStructField("day", DataTypes.IntegerType, false)
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getLng), DataTypes.DoubleType, false),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getLat), DataTypes.DoubleType, false),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getGeoHash), DataTypes.StringType, true),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getAvg_tmpr_f), DataTypes.DoubleType, false),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getAvg_tmpr_c), DataTypes.DoubleType, false),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getWthr_date), DataTypes.StringType, false),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getYear), DataTypes.IntegerType, false),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getMonth), DataTypes.IntegerType, false),
+                DataTypes.createStructField(getPropertyName(Weather.class, Weather::getDay), DataTypes.IntegerType, false)
         });
 
         SparkSession spark = SparkSession
@@ -54,13 +54,19 @@ public class HotelsAndWeatherJob {
         String baseUrl = "abfss://" + containerName + "@" + accountName + ".dfs.core.windows.net";
 
         Dataset<Hotel> hotelsDataset = getHotelDataset(hotelSchema, spark, baseUrl);
+        System.out.println("Hotels count: " + hotelsDataset.count());
 
         Dataset<Weather> weatherDataset = getWeatherDataset(weatherSchema, spark, baseUrl);
+        System.out.println("Weather count: " + weatherDataset.count());
 
         weatherDataset
-                .drop(PropertyUtils.getPropertyName(Weather.class, Weather::getLat))
-                .drop(PropertyUtils.getPropertyName(Weather.class, Weather::getLng))
-                .join(hotelsDataset, PropertyUtils.getPropertyName(Weather.class, Weather::getGeoHash))
+                .drop(getPropertyName(Weather.class, Weather::getLat))
+                .drop(getPropertyName(Weather.class, Weather::getLng))
+                .joinWith(
+                        hotelsDataset,
+                        weatherDataset
+                                .col(getPropertyName(Weather.class, Weather::getGeoHash))
+                                .equalTo(hotelsDataset.col(getPropertyName(Hotel.class, Hotel::getGeoHash))), "inner")
                 .show();
 
         spark.stop();
@@ -86,7 +92,10 @@ public class HotelsAndWeatherJob {
                 }, weatherEncoder);
 
         return weatherDataset
-                .dropDuplicates(PropertyUtils.getPropertyName(Weather.class, Weather::getGeoHash));
+                .dropDuplicates(new String[]{
+                        getPropertyName(Weather.class, Weather::getGeoHash),
+                        getPropertyName(Weather.class, Weather::getWthr_date)
+                });
     }
 
     private static Dataset<Hotel> getHotelDataset(StructType schema, SparkSession spark, String baseUrl) {
@@ -112,7 +121,7 @@ public class HotelsAndWeatherJob {
                     return hotel;
                 }, hotelEncoder);
 
-        return hotelsDataset.dropDuplicates(PropertyUtils.getPropertyName(Hotel.class, Hotel::getId));
+        return hotelsDataset.dropDuplicates(getPropertyName(Hotel.class, Hotel::getId));
     }
 
     private static void findLatitudeAndLongitude(Hotel hotel) {
