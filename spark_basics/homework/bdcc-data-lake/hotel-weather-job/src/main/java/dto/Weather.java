@@ -1,4 +1,4 @@
-package utilities;
+package dto;
 
 import lombok.Data;
 
