@@ -19,7 +19,7 @@ import java.io.IOException;
 
 import static de.cronn.reflection.util.PropertyUtils.getPropertyName;
 
-public class Application {
+public class HotelWeatherJob {
     // TODO move it to config file
     private static final String containerName = "m6sparkbasics";
     private static final String accountName = "bd201stacc";
