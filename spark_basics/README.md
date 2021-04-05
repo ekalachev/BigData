@@ -6,7 +6,7 @@
 - [Installation guide](https://phoenixnap.com/kb/install-spark-on-windows-10).
 
 ## Homework
-- [Homework Repository](./homework)
+- [Homework Repository](./homework/bdcc-data-lake)
 
 ## Qustions:
 - [That is spark?](#what_is_spark)
