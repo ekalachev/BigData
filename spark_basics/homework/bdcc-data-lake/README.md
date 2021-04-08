@@ -18,7 +18,7 @@
 | 29.1 | 84.4 | 29 | 19.721 | -75.5616 | 8 | 2017-08-29 | 2017 |
 
 ### Expected result
-Stored enriched data (joined data with all the fields from both datasets) is provisioned with terraform Azure ADLS gen2 storage preserving data partitioning in parquet format in “data” container (it marked with prevent_destroy=true and will survive to terraform destroy).
+Stored enriched data (joined data with all the fields from both datasets) is provisioned with *[terraform Azure ADLS gen2](./terraform)* storage preserving data partitioning in parquet format in “data” container (it marked with prevent_destroy=true and will survive to terraform destroy).
 
 ![result1](./img/result1.png)
 ![result1](./img/result2.png)
