@@ -68,24 +68,23 @@ ENV PATH "$SPARK_HOME/bin:$HADOOP_HOME/bin:$PATH"
 ENV SPARK_DIST_CLASSPATH $HADOOP_HOME/etc/hadoop:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/hdfs:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/yarn:$HADOOP_HOME/share/hadoop/yarn/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/tools/lib/*
 ENV SPARK_CLASSPATH $HADOOP_HOME/etc/hadoop:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/hdfs:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/yarn:$HADOOP_HOME/share/hadoop/yarn/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/tools/lib/*
 
-#RUN wget -O $SPARK_HOME/jars/spark-core_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-core_2.12/3.1.1/spark-core_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-sql_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sql_2.12/3.1.1/spark-sql_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-catalyst_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-catalyst_2.12/3.1.1/spark-catalyst_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-kvstore_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-kvstore_2.12/3.1.1/spark-kvstore_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-launcher_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-launcher_2.12/3.1.1/spark-launcher_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-network-common_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-network-common_2.12/3.1.1/spark-network-common_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-network-shuffle_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-network-shuffle_2.12/3.1.1/spark-network-shuffle_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-sketch_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sketch_2.12/3.1.1/spark-sketch_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-tags_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-tags_2.12/3.1.1/spark-tags_2.12-3.1.1.jar
-#RUN wget -O $SPARK_HOME/jars/spark-unsafe_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-unsafe_2.12/3.1.1/spark-unsafe_2.12-3.1.1.jar
-#
-#
-#RUN wget -O $SPARK_HOME/jars/log4j-1.2.17.jar https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
-#RUN wget -O $SPARK_HOME/jars/hadoop-azure-3.2.1.jar https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.2.1/hadoop-azure-3.2.1.jar
-#RUN wget -O $SPARK_HOME/jars/hadoop-client-3.2.1.jar https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client/3.2.1/hadoop-client-3.2.1.jar
-#RUN wget -O $SPARK_HOME/jars/azure-storage-8.6.6.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-storage/8.6.6/azure-storage-8.6.6.jar
-#RUN wget -O $SPARK_HOME/jars/azure-keyvault-core-1.2.4.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-keyvault-core/1.2.4/azure-keyvault-core-1.2.4.jar
-#RUN wget -O $SPARK_HOME/jars/azure-data-lake-store-sdk-2.3.9.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-data-lake-store-sdk/2.3.9/azure-data-lake-store-sdk-2.3.9.jar
+RUN wget -O $SPARK_HOME/jars/spark-core_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-core_2.12/3.1.1/spark-core_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-sql_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sql_2.12/3.1.1/spark-sql_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-catalyst_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-catalyst_2.12/3.1.1/spark-catalyst_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-kvstore_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-kvstore_2.12/3.1.1/spark-kvstore_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-launcher_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-launcher_2.12/3.1.1/spark-launcher_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-network-common_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-network-common_2.12/3.1.1/spark-network-common_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-network-shuffle_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-network-shuffle_2.12/3.1.1/spark-network-shuffle_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-sketch_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sketch_2.12/3.1.1/spark-sketch_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-tags_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-tags_2.12/3.1.1/spark-tags_2.12-3.1.1.jar
+RUN wget -O $SPARK_HOME/jars/spark-unsafe_2.12-3.1.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-unsafe_2.12/3.1.1/spark-unsafe_2.12-3.1.1.jar
+
+RUN wget -O $SPARK_HOME/jars/log4j-1.2.17.jar https://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
+RUN wget -O $SPARK_HOME/jars/hadoop-azure-3.2.1.jar https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.2.1/hadoop-azure-3.2.1.jar
+RUN wget -O $SPARK_HOME/jars/hadoop-client-3.2.1.jar https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client/3.2.1/hadoop-client-3.2.1.jar
+RUN wget -O $SPARK_HOME/jars/azure-storage-8.6.6.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-storage/8.6.6/azure-storage-8.6.6.jar
+RUN wget -O $SPARK_HOME/jars/azure-keyvault-core-1.2.4.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-keyvault-core/1.2.4/azure-keyvault-core-1.2.4.jar
+RUN wget -O $SPARK_HOME/jars/azure-data-lake-store-sdk-2.3.9.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-data-lake-store-sdk/2.3.9/azure-data-lake-store-sdk-2.3.9.jar
 
 
 COPY entrypoint.sh /opt/

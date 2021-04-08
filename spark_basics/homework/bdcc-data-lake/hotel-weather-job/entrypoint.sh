@@ -6,7 +6,7 @@ readonly KUBERNETES_CONTAINER_IMAGE="spark/hotel-weather-job"
 readonly SOURCE_DIR="/tmp/spark-k8s-demo"
 
 # Execute the container CMD under tini for better hygiene
-exec /sbin/tini -s -- spark-submit --master "k8s://https://kubernetes.docker.internal:6443" \
+exec /sbin/tini -s -- spark-submit --master "${SPARK_MASTER}" \
 --deploy-mode cluster \
 --conf spark.jars.ivy=/tmp/.ivy \
 --conf spark.kubernetes.container.image="${KUBERNETES_CONTAINER_IMAGE}" \
