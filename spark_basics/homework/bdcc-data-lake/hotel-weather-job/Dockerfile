@@ -86,7 +86,6 @@ RUN wget -O $SPARK_HOME/jars/azure-storage-8.6.6.jar https://repo1.maven.org/mav
 RUN wget -O $SPARK_HOME/jars/azure-keyvault-core-1.2.4.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-keyvault-core/1.2.4/azure-keyvault-core-1.2.4.jar
 RUN wget -O $SPARK_HOME/jars/azure-data-lake-store-sdk-2.3.9.jar https://repo1.maven.org/maven2/com/microsoft/azure/azure-data-lake-store-sdk/2.3.9/azure-data-lake-store-sdk-2.3.9.jar
 
-
 COPY entrypoint.sh /opt/
 COPY Dockerfile /my_docker/
 COPY conf/* $SPARK_CONF_DIR/
