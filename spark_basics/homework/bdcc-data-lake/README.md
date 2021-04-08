@@ -7,12 +7,14 @@
 ## Expected tables for reading
 
 ### Hotel table
+The data stores as compressed CSV files
 | address | city | country | id | latitude | longitude | name |
 | --- | --- | --- | --- | --- | --- | --- |
 | Towneplace Suites | Bowie | US | 1099511627779 | 38.94262 | -76.73404 | 23500 Welcome Way Dr |
 | Americas Best Val... | Chico | US | 1245540515840 | null | null | 740 Broadway St |
 
 ### Weather table
+The data stores as parquet files
 | avg_tmpr_c | avg_tmpr_f | day | lat | lng | month | wthr_date | year |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 18.5 | 65.3 | 29 | 20.5816 | -98.4092 | 8 | 2017-08-29 | 2017 |
