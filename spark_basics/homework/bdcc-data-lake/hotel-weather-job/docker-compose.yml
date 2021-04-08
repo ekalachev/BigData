@@ -4,7 +4,7 @@ services:
     image: spark/hotel-weather-job
     build:
       args:
-        spark_master: "k8s://https://kubernetes.docker.internal:6443"
+        spark_master: "k8s://https://domain:port"
 
         blob_read_account_name: "<blob_read_account_name>"
         blob_read_container_name: "<blob_read_container_name>"
