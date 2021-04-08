@@ -43,4 +43,8 @@ Stored enriched data (joined data with all the fields from both datasets) is pro
   - blob_write_container_name: "[blob container name where data will be written]"
   - blob_write_container_key: "[blob container key where data will be written]"
   - opencage_api_key: "[[opencage api key](https://opencagedata.com/api) for getting geo locations for rows with NULL values]"
+- Setup Azure storage
+  - In CMD go to directory [terraform](./teraform) and run command: terraform init
+  - enter: *the container name*, *the blob key* and *the name of the storage account*
+- Run the application: docker-compose up --build
 
