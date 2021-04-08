@@ -5,13 +5,14 @@
 - Join weather and hotels data by generated 4-characters geohash (avoid data multiplication and make you job idempotent)
 
 ## Expected tables for reading
-### Hotel:
+
+### Hotel table
 | address | city | country | id | latitude | longitude | name |
 | --- | --- | --- | --- | --- | --- | --- |
 | Towneplace Suites | Bowie | US | 1099511627779 | 38.94262 | -76.73404 | 23500 Welcome Way Dr |
 | Americas Best Val... | Chico | US | 1245540515840 | null | null | 740 Broadway St |
 
-### Weather
+### Weather table
 | avg_tmpr_c | avg_tmpr_f | day | lat | lng | month | wthr_date | year |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 18.5 | 65.3 | 29 | 20.5816 | -98.4092 | 8 | 2017-08-29 | 2017 |
@@ -23,6 +24,7 @@ Stored enriched data (joined data with all the fields from both datasets) is pro
 ![result1](./img/result1.png)
 ![result1](./img/result2.png)
 
+### Structure of the result table
 | address | avg_tmpr_c | avg_tmpr_f | city | country | day | geoHash | id | latitude | longitude | month | name | wthr_date | year |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Watermark Bed Bre... | 18.5 | 65.3 | Wittman | US| 29 | dqcs | 867583393793 | 38.796997 |  -76.30522 | 8 | 8956 Tilghman Isl... | 2017-08-29 | 2017 |
