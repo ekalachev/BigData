@@ -1,49 +1,40 @@
+import conf.SystemVariables;
 import dto.Hotel;
 import dto.HotelWeather;
 import dto.Weather;
-import repositories.HotelRepositoryImpl;
 import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.SparkSession;
+import providers.LatLngSearchProviderImpl;
+import repositories.HotelRepositoryImpl;
 import repositories.Repository;
 import repositories.WeatherRepositoryImpl;
 import scala.Tuple2;
 import services.GeoService;
 import services.GeoServiceImpl;
-import providers.LatLngSearchProviderImpl;
 import services.HotelWeatherService;
 import services.HotelWeatherServiceImpl;
-
-import java.io.IOException;
 
 import static de.cronn.reflection.util.PropertyUtils.getPropertyName;
 
 public class HotelWeatherJob {
-    // TODO move it to config file
-    private static final String containerName = "m6sparkbasics";
-    private static final String accountName = "bd201stacc";
 
-    public static void main(String[] args) throws IOException {
-//        System.getenv().forEach((k, v) -> {
-//            System.out.println(k + ":" + v);
-//        });
-
-//        System.out.println(System.getenv("HADOOP_HOME"));
+    public static void main(String[] args) {
+        SystemVariables systemVariables = SystemVariables.getInstance();
 
         // TODO move it to IoC
         SparkSession spark = SparkSession
                 .builder()
-                .master("local[*]")
-                .appName("HotelsAndWeatherJob")
+//                .master(systemVariables.getSparkMaster())
+//                .config(systemVariables.getBlobReadKeyProperty(), systemVariables.getBlobReadContainerKey())
+//                .config(systemVariables.getBlobWriteKeyProperty(), systemVariables.getBlobWriteContainerKey())
                 .getOrCreate();
 
-        GeoService geoService = new GeoServiceImpl(new LatLngSearchProviderImpl());
+        GeoService geoService = new GeoServiceImpl(new LatLngSearchProviderImpl(systemVariables));
 
-        String baseUrl = "abfss://" + containerName + "@" + accountName + ".dfs.core.windows.net";
-
-        Repository<Hotel> hotelRepository = new HotelRepositoryImpl(spark, baseUrl);
-        Repository<Weather> weatherRepository = new WeatherRepositoryImpl(spark, baseUrl);
+        Repository<Hotel> hotelRepository = new HotelRepositoryImpl(spark, systemVariables.getBlobReadUrl());
+        Repository<Weather> weatherRepository = new WeatherRepositoryImpl(spark, systemVariables.getBlobReadUrl());
 
         HotelWeatherService hotelWeatherService = new HotelWeatherServiceImpl(geoService, hotelRepository, weatherRepository);
 
@@ -60,10 +51,6 @@ public class HotelWeatherJob {
                                 new HotelWeather(hw._2(), hw._1()),
                         Encoders.bean(HotelWeather.class));
 
-//        hotelWeatherDataset.show();
-
-        String outputPath = new java.io.File("./tmp/partitioned_hotel_weather/").getCanonicalPath();
-
         hotelWeatherDataset
                 .write()
                 .partitionBy(
@@ -72,7 +59,8 @@ public class HotelWeatherJob {
                         getPropertyName(HotelWeather.class, HotelWeather::getDay)
                 )
                 .mode("overwrite")
-                .parquet(outputPath);
+                .format("parquet")
+                .save(systemVariables.getBlobWriteUrl() + "/hotel-weather");
 
         spark.stop();
     }

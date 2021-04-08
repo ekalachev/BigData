@@ -1,0 +1,28 @@
+version: "3"
+services:
+  SparkHelloWorld:
+    image: spark/hotel-weather-job
+    build:
+      args:
+        blob_read_account_name: "bd201stacc"
+        blob_read_container_name: "m6sparkbasics"
+
+        blob_read_container_key: "L6X661FhSG78rVrWUyNOTzeXyzfHzQVZF9bX0ukUS4U90VQdLTeuEVWUFiok8l4MAXJGMLYIolTT1R1rjuNtrA=="
+
+        blob_write_account_name: "eldarbigdata"
+        blob_write_container_name: "hotel-weather"
+
+        blob_write_container_key: "TNYRQlRounWUyl3qAMLYLto21nVYb2P2oPwPYKzzAGnuKYQCoDaxUUt8NcLmtWKbWQYd027rMx+frV23nDacpA=="
+
+        opencage_api_key: "8b8ee57729df4c2796987adb5b9fd153"
+
+        spark_master_name: "https://kubernetes.docker.internal"
+        spark_master_port: "6443"
+        spark_application_main_class: "HotelWeatherJob"
+        spark_application_jar_class: "hotel-weather-job-1.0-SNAPSHOT"
+
+        spark_application_args: "--conf spark.hadoop.fs.azure.account.key.bd201stacc.dfs.core.windows.net=L6X661FhSG78rVrWUyNOTzeXyzfHzQVZF9bX0ukUS4U90VQdLTeuEVWUFiok8l4MAXJGMLYIolTT1R1rjuNtrA== --conf spark.fs.azure.account.key.eldarbigdata.dfs.core.windows.net=TNYRQlRounWUyl3qAMLYLto21nVYb2P2oPwPYKzzAGnuKYQCoDaxUUt8NcLmtWKbWQYd027rMx+frV23nDacpA== --deploy-mode client --conf spark.driver.host=spark-client"
+
+      context: ..
+      dockerfile: Dockerfile2
+    container_name: HotelWeatherJob
