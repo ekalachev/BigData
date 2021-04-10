@@ -46,7 +46,7 @@ ENV SPARK_VERSION      $SPARK_VERSION_ARG
 
 RUN set -ex && \
     apk upgrade --no-cache && \
-    apk --update add --no-cache bash tini libstdc++ glib gcompat libc6-compat linux-pam krb5 krb5-libs nss openssl wget sed curl && \
+    apk --update add --no-cache bash libstdc++ glib gcompat libc6-compat linux-pam krb5 krb5-libs nss openssl wget sed curl && \
     rm /bin/sh && \
     ln -sv /bin/bash /bin/sh && \
     echo "auth required pam_wheel.so use_uid" >> /etc/pam.d/su && \
@@ -99,8 +99,9 @@ COPY conf/log4j.properties /my_docker/conf/
 RUN chmod +x /opt/*.sh
 
 WORKDIR $SPARK_HOME/work-dir
+RUN chmod g+w $SPARK_HOME/work-dir
 
-ENTRYPOINT [ "/opt/entrypoint.sh" ]
+ENTRYPOINT ["/opt/entrypoint.sh" ]
 
 # Specify the User that the actual main process will run as
 USER ${spark_uid}
