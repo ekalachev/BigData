@@ -13,7 +13,9 @@
 - Repository with notebook (with output results), configuration scripts, application sources, execution plan dumps, analysis and etc.
 - Upload in task Readme MD file with link on repo, fully documented homework with screenshots and comments.
 
-# Solution:
+## Solution:
+The task was done on SQL programming language for increasing the challenge. I tried to exclude python and scala as much as possible from the task.
+
 - [Investigation of the data](./bdcc-data-etl/spark-sql-hw-investigation.sql)
 - [Task 1](./bdcc-data-etl/task1-top-10-hotels-max-abs-tmpr-diff.sql)
   ![result1](./img/result1.png)
