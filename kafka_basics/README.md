@@ -11,9 +11,9 @@ To complete [Clickstream Data Analysis Pipeline Using KSQL (Docker)](https://doc
 
 The tutorial uses standard streaming functions (i.e., min, max, etc) and enrichment using child tables, stream-table join, and different types of windowing functionality.
 
-## Solution:
+## Solution (on Windows):
 
-### Create the Clickstream Data (on Windows)
+### Create the Clickstream Data
 
 1. Clone the repository
 2. Open git bush
