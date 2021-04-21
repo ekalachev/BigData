@@ -84,4 +84,11 @@ The script will issue some statements to the console about where it is in the pr
 
 ## View solution:
 
+- General website analytics, such as hit count and visitors
+- Bandwidth use
+- Mapping user-IP addresses to actual users and their location
+- Detection of high-bandwidth user sessions
+- Error-code occurrence and enrichment
+- Sessionization to track user-sessions and understand behavior (such as per-user-session-bandwidth, per-user-session-hits etc)
+
 ![kafka_basics9-1.png](./img/kafka_basics9-2.png)
