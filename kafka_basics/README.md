@@ -11,7 +11,9 @@ To complete [Clickstream Data Analysis Pipeline Using KSQL (Docker)](https://doc
 
 The tutorial uses standard streaming functions (i.e., min, max, etc) and enrichment using child tables, stream-table join, and different types of windowing functionality.
 
-## Create the Clickstream Data (on Windows)
+## Solution:
+
+### Create the Clickstream Data (on Windows)
 
 1. Clone the repository
 2. Open git bush
@@ -39,14 +41,14 @@ The tutorial uses standard streaming functions (i.e., min, max, etc) and enrichm
 
    ![kafka_basics4.png](./img/kafka_basics4.png)
 
-## Load the Streaming Data to ksqlDB
+### Load the Streaming Data to ksqlDB
 
 1. Load the statements.sql file that runs the tutorial app
     > RUN SCRIPT '/scripts/statements.sql';
 2. Go to Confluent Control Center UI at [http://localhost:9021](http://localhost:9021), and verify that data is being streamed through various tables and streams. Query one of the streams CLICKSTREAM:
     ![kafka_basics5.png](./img/kafka_basics5.png)
 
-## Load the Clickstream Data in Grafana
+### Load the Clickstream Data in Grafana
 
 1. Set up the required Elasticsearch document mapping template:
     > winpty docker-compose exec elasticsearch bash -c '//scripts/elastic-dynamic-template.sh'
@@ -66,7 +68,7 @@ The tutorial uses standard streaming functions (i.e., min, max, etc) and enrichm
 5. In the Confluent Control Center UI at [http://localhost:9021](http://localhost:9021), again view the running connectors. The three kafka-connect-datagen source connectors were created with the ksqlDB CLI, and the seven Elasticsearch sink connectors were created with the ksqlDB REST API.
    ![kafka_basics8.png](./img/kafka_basics8.png)
 
-## Sessionize the data
+### Sessionize the data
 
 One of the tables created by the demo, CLICK_USER_SESSIONS, shows a count of user activity for a given user session. All clicks from the user count towards the total user activity for the current session. If a user is inactive for 30 seconds, then any subsequent click activity is counted towards a new session.
 
@@ -82,7 +84,7 @@ To generate the session data execute the following statement from the examples/c
 
 The script will issue some statements to the console about where it is in the process.
 
-## View solution:
+### The result:
 
 - General website analytics, such as hit count and visitors
 - Bandwidth use
