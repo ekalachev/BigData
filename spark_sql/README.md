@@ -16,16 +16,16 @@
 ## Solution:
 The task was done on SQL programming language for increasing the challenge. I tried to exclude python and scala as much as possible from the task.
 
-- [Investigation of the data](./bdcc-data-etl/spark-sql-hw-investigation.sql)
-- [Task 1](./bdcc-data-etl/task1-top-10-hotels-max-abs-tmpr-diff.sql)
+- [Investigation of the data](./spark-sql-homework/spark-sql-hw-investigation.sql)
+- [Task 1](./spark-sql-homework/task1-top-10-hotels-max-abs-tmpr-diff.sql)
   ![result1](./img/result1.png)
   ![result1-2](./img/result1-2.png)
   
-- [Task 2](./bdcc-data-etl/task2-top-10-busy-hotels.sql)
+- [Task 2](./spark-sql-homework/task2-top-10-busy-hotels.sql)
   ![result2](./img/result2.png)
   ![result2-2](./img/result2-2.png)
   
-- [Task 3](./bdcc-data-etl/task3-visits-with-extended-stay.sql)
+- [Task 3](./spark-sql-homework/task3-visits-with-extended-stay.sql)
   ![result3](./img/result3.png)
   ![result3-2](./img/result3-2.png)
   
