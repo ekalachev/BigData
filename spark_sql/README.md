@@ -16,17 +16,24 @@
 ## Solution:
 The task was done on SQL programming language for increasing the challenge. I tried to exclude python and scala as much as possible from the task.
 
-- [Investigation of the data](./spark-sql-homework/spark-sql-hw-investigation.sql)
-- [Task 1](./spark-sql-homework/task1-top-10-hotels-max-abs-tmpr-diff.sql)
+### [Investigation of the data](./spark-sql-homework/spark-sql-hw-investigation.sql)
+
+### [Top 10 hotels with max absolute temperature difference by month.](./spark-sql-homework/task1-top-10-hotels-max-abs-tmpr-diff.sql)
+
   ![result1](./img/result1.png)
+  
   ![result1-2](./img/result1-2.png)
   
-- [Task 2](./spark-sql-homework/task2-top-10-busy-hotels.sql)
+### [Top 10 busy (e.g. with the biggest visits count) hotels for each month. If visit dates refer to several months it should be counted for all affected months.](./spark-sql-homework/task2-top-10-busy-hotels.sql)
+
   ![result2](./img/result2.png)
+  
   ![result2-2](./img/result2-2.png)
   
-- [Task 3](./spark-sql-homework/task3-visits-with-extended-stay.sql)
+### [For visits with extended stay (more than 7 days) calculate weather trend (the day temperature difference between last and first day of stay) and average temperature during stay.](./spark-sql-homework/task3-visits-with-extended-stay.sql)
+
   ![result3](./img/result3.png)
+  
   ![result3-2](./img/result3-2.png)
   
 ## To run the scripts you will need to setup a config file
