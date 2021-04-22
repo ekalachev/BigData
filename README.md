@@ -1,4 +1,4 @@
-# BigData - Data Engineering Mentoring Program.
+# BigData - Data Engineering Program.
 
 - [Introduction to Hadoop](./introduction_to_hadoop)
 - [Cloud PriceGuard](./cloud_priceguard-master)
