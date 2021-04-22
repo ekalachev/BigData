@@ -4,18 +4,15 @@ terraform {
 }
 
 provider "azurerm" {
-  version = "~> 2.54.0"
+  version = "~> 2.55.0"
   features {
-    key_vault {
-      purge_soft_delete_on_destroy = true
-    }
   }
 }
 
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_resource_group" "bdcc" {
-  name = "rg-datalake-${var.ENV}-${var.LOCATION}"
+  name = "rg-${var.ENV}-${var.LOCATION}"
   location = var.LOCATION
 
   lifecycle {
@@ -32,7 +29,7 @@ resource "azurerm_storage_account" "bdcc" {
   depends_on = [
     azurerm_resource_group.bdcc]
 
-  name = "stdatalake${var.ENV}${var.LOCATION}"
+  name = "st${var.ENV}${var.LOCATION}"
   resource_group_name = azurerm_resource_group.bdcc.name
   location = azurerm_resource_group.bdcc.location
   account_tier = "Standard"
@@ -71,7 +68,7 @@ resource "azurerm_kubernetes_cluster" "bdcc" {
   depends_on = [
     azurerm_resource_group.bdcc]
 
-  name                = "aks-datalake-${var.ENV}-${var.LOCATION}"
+  name                = "aks-${var.ENV}-${var.LOCATION}"
   location            = azurerm_resource_group.bdcc.location
   resource_group_name = azurerm_resource_group.bdcc.name
   dns_prefix          = "bdcc${var.ENV}"
