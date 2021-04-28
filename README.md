@@ -6,4 +6,4 @@
 - [Spark SQL](./spark_sql)
 - [Kafka Basics](./kafka_basics)
 - [Kafka Connect](./kafka_connect)
-- [Spark ML](./sparkml_python_azure-master)
+- [Spark ML](./spark_ml)
