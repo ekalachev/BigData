@@ -1,0 +1,18 @@
+name: Deploying an ML Project with MLflow
+
+entry_points:
+  config:
+    parameters:
+      username: eldar_kalachev@epam.com
+      databricks_token: dapi535474da55a7ffd7b4c6755249b9fe62-2
+      winequality_white_path: /dbfs/FileStore/tables/winequality_white.csv
+      winequality_red_path: /dbfs/FileStore/tables/winequality_red.csv
+      experiment_id: 4220597789816088
+
+    command: >
+      python includes/main/python/config.py
+      --username {username}
+      --databricks_token {databricks_token}
+      --winequality_white_path {winequality_white_path}
+      --winequality_red_path-name {winequality_red_path}
+      --experiment_id {experiment_id}
