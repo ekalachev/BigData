@@ -23,7 +23,7 @@ If you are using Databricks Runtime 7.3 LTS ML or below, you must update the Clo
 
 - Presentation may be loaded [here](./presentation)
 - Configuration
-- <img src="./img/config.png" style="width: 100%; image-rendering: pixelated;"/>
+  ![models](./img/config.png)
 - Load data
   ![models](./img/load_data.png)
 - Loaded data and config
