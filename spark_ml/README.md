@@ -22,7 +22,15 @@ If you are using Databricks Runtime 7.3 LTS ML or below, you must update the Clo
 ## Result of the work:
 
 - Presentation may be loaded [here](./presentation)
-- The resulting model:
-![models](./img/models.png)
+- Configuration
+  ![models](./img/config.png)
+- Load data
+  ![models](./img/load_data.png)
+- Loaded data and config
+  ![models](./img/loaded_data_and_config.png)
+- Model learning
+  ![models](./img/model_learning.png)
+- Model versions
+  ![models](./img/models.png)
 - Result prediction:
-![result prediction](./img/result.png)
+  ![result prediction](./img/result.png)
