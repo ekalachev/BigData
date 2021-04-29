@@ -28,6 +28,9 @@ If you are using Databricks Runtime 7.3 LTS ML or below, you must update the Clo
   ![models](./img/load_data.png)
 - Loaded data and config
   ![models](./img/loaded_data_and_config.png)
+- Visualization
+  ![models](./img/visualization1.png)
+  ![models](./img/visualization2.png)
 - Model learning
   ![models](./img/model_learning.png)
 - Model versions
