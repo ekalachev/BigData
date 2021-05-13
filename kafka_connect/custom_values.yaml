@@ -52,7 +52,7 @@ kafka:
     privkey: |-
     cacerts: |-
   metricReporter:
-    enabled: false
+    enabled: true
 
 ## Connect Cluster
 ##
@@ -81,11 +81,15 @@ connect:
     schemaRegistry:
       enabled: true
       url: http://schemaregistry:8081
+  image:
+    repository: azure-blob-storage-source
+    tag: 1.0.0
+
 ## Replicator Connect Cluster
 ##
 replicator:
   name: replicator
-  replicas: 2
+  replicas: 1
   resources:
     requests:
       cpu: 200m
