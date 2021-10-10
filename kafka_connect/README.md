@@ -92,7 +92,9 @@ docker build -t "my-azure-connector:1.0.0" .
 
 ## Create a kafka topic
 
-- The topic should have at least 3 partitions because the azure blob storage has 3 partitions. Name the new topic: "expedia".
+- The **topic** should have **!!! at least 3 partitions !!!** because the azure blob storage has 3 partitions. Name the new topic: "expedia".
+
+![connect](./img/kafka_connect_10.png)
 
 ## Prepare the azure connector configuration
 
